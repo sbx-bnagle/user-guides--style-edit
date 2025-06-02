@@ -81,6 +81,17 @@ To access the GUI from your local computer, forward port 8000 from the login nod
 
 ![CS-2 connection diagram](./files/cs_sdk_gui.png)
 
+#### Port Forwarding instructions 
+To access the GUI from your local computer, forward port 8000 from the login node to
+your local machine and open the following URL in your web browser: http://localhost:8000/sdk-
+gui/. 
+To forward port 8000 on the login node to port 8000 on your machine, you will
+need to open (or reopen) a terminal and ssh into the Cerebras system using the following
+command (replacing <YOUR ALCF ID>with your ALCF ID):
+```bash
+ssh -L 8000:localhost:8000 <YOUR ALCF ID>@cerebras.alcf.anl.gov
+```
+In that window, you can then run the commands to launch the SDK Debug GUI
 
 ## SDK with Appliance Mode
 
