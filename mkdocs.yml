@@ -71,6 +71,7 @@ extra_javascript:
   - javascripts/alcf-extra.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+  - javascripts/popup-table.js
 
 markdown_extensions:
   - footnotes
@@ -136,6 +137,7 @@ extra:
 
 plugins:
   - include-markdown
+  - glightbox
   - search:
       lang: en
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'

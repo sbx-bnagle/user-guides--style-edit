@@ -8,3 +8,4 @@ mkdocs-get-deps
 #mkdocs-material-extensions
 mkdocs-minify-plugin
 mkdocs-redirects
+mkdocs-glightbox
