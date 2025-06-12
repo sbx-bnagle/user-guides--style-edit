@@ -1,6 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+function enhanceTables() {
   document.querySelectorAll("table").forEach(table => {
+    if (table.classList.contains("popup-enhanced")) return; // prevent double binding
+    table.classList.add("popup-enhanced");
     table.style.cursor = "zoom-in";
+
     table.addEventListener("click", () => {
       const overlay = document.createElement("div");
       overlay.style.position = "fixed";
@@ -29,4 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.addEventListener("click", () => overlay.remove());
     });
   });
-});
+}
+
+// Initial run
+document.addEventListener("DOMContentLoaded", enhanceTables);
+
+// Re-run after instant navigation
+if (window.MkDocsMaterial) {
+  window.MkDocsMaterial.init(() => {
+    enhanceTables();
+  });
+}
