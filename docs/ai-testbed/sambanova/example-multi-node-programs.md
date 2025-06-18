@@ -44,11 +44,6 @@ The script uses the arguments `pcompile` and `prun` for the data parallel compil
 ./Unet2d.sh prun <image size> <batch_size> <num of instances> <RunID>
 ```
 
-If you have already compiled for a previous version of the sambaflow stack, delete existing pef file, if it exists.
-```bash
-rm /data/scratch/$(whoami)/GPT_RUN/gpt15/gpt15.pef
-```
-
 For a image size of 256x256 and local batch size of 256 when running 8 instance, the commands are provided as follows.
 
 ```bash
@@ -107,6 +102,12 @@ Copy the contents of [Gpt1.5B_compile.sh](./files/Gpt1.5B_compile.sh) and [Gpt1.
 
 This script consists of commands to `compile` and `run` multiple instances of Gpt1.5B model across multiple nodes. Run the Gpt1.5B_compile.sh to first compile and generate the `pef` file for the model and it in turn launches the `Gpt1.5B_run.sh` script to run multiple instances of the model over the different nodes.
 
+If you have already compiled for a previous version of the sambaflow stack, delete existing pef file, if it exists.
+```bash
+rm /data/scratch/$(whoami)/GPT_RUN/gpt15/gpt15.pef
+```
+
+Then
 ```console
 chmod +x Gpt1.5B_compile.sh
 chmod +x Gpt1.5B_run.sh
