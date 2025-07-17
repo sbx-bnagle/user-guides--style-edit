@@ -12,7 +12,8 @@ module use /soft/modulefiles; module load conda; conda activate base
 
 This will load and activate the base environment.
 
-**Tip:** We encourage users to use the pre-installed conda environment. Any custom environments are supported on a best-effort basis only.
+!!! tip 
+    We encourage users to use the pre-installed conda environment. Any custom environments are supported on a best-effort basis only.
 
 For Python issues or questions, please see the [Technical Support](../../support/technical-support.md) page.
 
@@ -20,20 +21,20 @@ For Python issues or questions, please see the [Technical Support](../../support
 
 To install additional packages that are missing from the `base` environment, we can build a `venv` on top of it.
 
-** success "Conda `base` environment + `venv`"**
+    !!! success "Conda `base` environment + `venv`"
 
-If you need a package that is **not** already installed in the `base` environment, this is generally the recommended approach.
+    If you need a package that is **not** already installed in the `base` environment, this is generally the recommended approach.
 
-We can create a `venv` on top of the base Anaconda environment (with `--system-site-packages` to inherit the `base` packages):
+    We can create a `venv` on top of the base Anaconda environment (with `--system-site-packages` to inherit the `base` packages):
 
-```bash
-module use /soft/modulefiles; module load conda; conda activate base
-CONDA_NAME=$(echo ${CONDA_PREFIX} | tr '\/' '\t' | sed -E 's/mconda3|\/base//g' | awk '{print $NF}')
-VENV_DIR="$(pwd)/venvs/${CONDA_NAME}"
-mkdir -p "${VENV_DIR}"
-python -m venv "${VENV_DIR}" --system-site-packages
-source "${VENV_DIR}/bin/activate"
-```
+    ```bash
+    module use /soft/modulefiles; module load conda; conda activate base
+    CONDA_NAME=$(echo ${CONDA_PREFIX} | tr '\/' '\t' | sed -E 's/mconda3|\/base//g' | awk '{print $NF}')
+    VENV_DIR="$(pwd)/venvs/${CONDA_NAME}"
+    mkdir -p "${VENV_DIR}"
+    python -m venv "${VENV_DIR}" --system-site-packages
+    source "${VENV_DIR}/bin/activate"
+    ```
 
 You can always retroactively change the `--system-site-packages` flag state for this virtual environment by editing `${VENV_DIR}/pyvenv.cfg` and changing the value of the line `include-system-site-packages=false`.
 
