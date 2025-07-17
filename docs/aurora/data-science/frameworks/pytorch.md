@@ -18,7 +18,7 @@ Then, you can `import` PyTorch in Python as usual (below showing results from th
 ``` { .python .no-copy }
 >>> import torch
 >>> torch.__version__
-'2.3.1+cxx11.abi'
+'2.5.1+cxx11.abi'
 ```
 A simple but useful check could be to use PyTorch to get device information on a compute node. You can do this the following way:
 
@@ -40,9 +40,9 @@ print(f'Device properties = {torch.xpu.get_device_properties()}')
 	GPU availability: True
     Number of tiles = 12
     Current tile = 0
-    Current device ID = <intel_extension_for_pytorch.xpu.device object at 0x1540a9f25790>
-    Device properties = _XpuDeviceProperties(name='Intel(R) Data Center GPU Max 1550', platform_name='Intel(R) Level-Zero', \
-	type='gpu', driver_version='1.3.30872', total_memory=65536MB, max_compute_units=448, gpu_eu_count=448, \
+    Current device ID = <<torch.xpu.device object at 0x1476e05df2e0>>
+    Device properties = _XpuDeviceProperties(name=Intel(R) Data Center GPU Max 1550', platform_name='Intel(R) oneAPI Unified Runtime over Level-Zero', \
+	type='gpu', driver_version='1.6.32567+18', total_memory=65536MB, max_compute_units=448, gpu_eu_count=448, \
 	gpu_subslice_count=56, max_work_group_size=1024, max_num_sub_groups=64, sub_group_sizes=[16 32], has_fp16=1, has_fp64=1, \
 	has_atomic64=1)
 	```
@@ -87,7 +87,7 @@ Each Aurora node has 6 GPUs (also called "Devices" or "cards") and each GPU is c
     
         ``` { .bash .no-copy }
     	1
-    	_XpuDeviceProperties(name='Intel(R) Data Center GPU Max 1550', platform_name='Intel(R) Level-Zero', type='gpu', driver_version='1.3.30872', total_memory=131072MB, max_compute_units=896, gpu_eu_count=896, gpu_subslice_count=112, max_work_group_size=1024, max_num_sub_groups=64, sub_group_sizes=[16 32], has_fp16=1, has_fp64=1, has_atomic64=1)
+        _XpuDeviceProperties(name='Intel(R) Data Center GPU Max 1550', platform_name='Intel(R) oneAPI Unified Runtime over Level-Zero', type='gpu', driver_version='1.6.32567+18', total_memory=131072MB, max_compute_units=896, gpu_eu_count=896, gpu_subslice_count=112, max_work_group_size=1024, max_num_sub_groups=64, sub_group_sizes=[16 32], has_fp16=1, has_fp64=1, has_atomic64=1)
     	```
     	
     More information and details are available through the [Level Zero Specification Documentation - Affinity Mask](https://oneapi-src.github.io/level-zero-spec/level-zero/latest/core/PROG.html?highlight=affinity#affinity-mask)
